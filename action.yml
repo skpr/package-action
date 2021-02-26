@@ -1,0 +1,14 @@
+name: Skpr Package
+description: Package an application for deploying to Skpr
+inputs:
+  version:
+    description: The version to package
+    required: true
+runs:
+  using: composite
+  steps:
+    - id: skpr-package
+      run: |
+        echo "Packaging version ${{ inputs.version }}"
+        skpr package ${{ inputs.version }}
+      shell: bash
